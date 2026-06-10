@@ -5,51 +5,71 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(circle, #1e3c72, #2a5298);
+  background: #0f172a;
 }
 
+/* 📱 Mobile container */
 .game-box {
-  background: white;
-  padding: 30px;
-  border-radius: 15px;
-  text-align: center;
   width: 320px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-}
-
-input {
-  padding: 10px;
-  width: 80%;
-  font-size: 16px;
-  margin: 10px 0;
-}
-
-button {
-  padding: 10px 15px;
-  margin: 5px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  background: #2a5298;
+  background: #1e293b;
   color: white;
+  padding: 25px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* Title */
+h1 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+/* Message */
+#message {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #38bdf8;
+}
+
+/* Input */
+input {
+  width: 90%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  margin: 10px 0;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* Buttons */
+button {
+  width: 90%;
+  padding: 12px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 10px;
+  background: #3b82f6;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
   transition: 0.2s;
 }
 
 button:hover {
-  transform: scale(1.05);
+  background: #2563eb;
+  transform: scale(1.03);
 }
 
-.shake {@keyframes shake {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  50% { transform: translateX(5px); }
-  75% { transform: translateX(-5px); }
-  100% { transform: translateX(0); }
+/* Score box */
+p {
+  margin: 8px 0;
+  font-size: 14px;
 }
 
+/* Shake animation */
 .shake {
-  animation: shake 0.3s;
-}
   animation: shake 0.3s;
 }
 
@@ -59,8 +79,11 @@ button:hover {
   50% { transform: translateX(5px); }
   75% { transform: translateX(-5px); }
   100% { transform: translateX(0); }
-}.win {
-  animation: pop 0.5s ease;
+}
+
+/* Win animation */
+.win {
+  animation: pop 0.4s ease;
 }
 
 @keyframes pop {
