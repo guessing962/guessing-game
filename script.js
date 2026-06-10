@@ -1,19 +1,21 @@
 let randomNumber;
 let score = 0;
 let gameOver = true;
-
-function startGame() {
+let highScore = localStorage.getItem("highScore") || 0;
+function startGame() {document.getElementById("highScore").innerText = highScore;
     score = 0;
     gameOver = false;
 
     randomNumber = Math.floor(Math.random() * 10) + 1;
 
     document.getElementById("score").innerText = score;
+    document.getElementById("winSound").play();
+    document.getElementById("wrongSound").play();
     document.getElementById("guessInput").disabled = false;
 
     document.getElementById("message").innerText =
         "🔥 Game Started! Guess 1–10";
-}
+}document.querySelector(".game-box").classList.add("win");
 
 function checkGuess() {
     if (gameOver) return;
@@ -39,6 +41,13 @@ function checkGuess() {
         gameOver = true;
         document.getElementById("guessInput").disabled = true;
     }
+}function shakeBox() {
+    let box = document.querySelector(".game-box");
+    box.classList.add("shake");
+shakeBox();
+    setTimeout(() => {
+        box.classList.remove("shake");
+    }, 300);
 }
 
 function restartGame() {
