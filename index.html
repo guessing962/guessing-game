@@ -7,27 +7,15 @@
 
 <body>
 
-<div class="game-box">
+  <h1>🎮 Guess Game</h1>
 
-  <h1>🎮 Guess Game Pro Max</h1>
+<p id="message">Press Start to Play</p>
 
-  <p id="message">Press Start to Play</p>
+<input id="guessInput" type="number" disabled placeholder="Enter number">
 
-  <input id="guessInput" type="number" disabled>
+<button onclick="startGame()">▶ Start Game</button>
+<button onclick="checkGuess()">🎯 Guess</button>
+<button onclick="restartGame()">🔁 Restart</button>
 
-  <button onclick="startGame()">Start</button>
-  <button onclick="checkGuess()">Guess</button>
-  <button onclick="restartGame()">Restart</button>
-
-  <p>Score: <span id="score">0</span></p<p>High Score: 
-  <p>High Score: <span id="highScore">0</span></p>
-</div>
-
-<!-- Sounds -->
-<audio id="winSound" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"></audio>
-<audio id="wrongSound" src="https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg"></audio>
-
-<script src="script.js"></script>
-
-</body>
-/html>
+<p>Score: <span id="score">0</span></p>
+<p>High Score: <span id="highScore">0</span></p>
