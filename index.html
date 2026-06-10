@@ -1,21 +1,55 @@
-<<!DOCTYPE html>
-<html>
-<head>
-  <title>Guess Game Pro Max</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+let randomNumber;
+let score = 0;
+let gameOver = true;
+let highScore = localStorage.getItem("highScore") || 0;
+function startGame() {document.getElementById("highScore").innerText = highScore;
+    score = 0;
+    gameOver = false;
 
-<body>
+    randomNumber = Math.floor(Math.random() * 10) + 1;
 
-  <h1>🎮 Guess Game</h1>
+    document.getElementById("score").innerText = score;
+    document.getElementById("winSound").play();
+    document.getElementById("wrongSound").play();
+    document.getElementById("guessInput").disabled = false;
 
-<p id="message">Press Start to Play</p>
+    document.getElementById("message").innerText =
+        "🔥 Game Started! Guess 1–10";
+}document.querySelector(".game-box").classList.add("win");
 
-<input id="guessInput" type="number" disabled placeholder="Enter number">
+function checkGuess() {
+    if (gameOver) return;
 
-<button onclick="startGame()">▶ Start Game</button>
-<button onclick="checkGuess()">🎯 Guess</button>
-<button onclick="restartGame()">🔁 Restart</button>
+    let guess = Number(document.getElementById("guessInput").value);
 
-<p>Score: <span id="score">0</span></p>
-<p>High Score: <span id="highScore">0</span></p>
+    if (guess === randomNumber) {
+        score++;
+        document.getElementById("message").innerText = "🎉 Correct!";
+        document.getElementById("score").innerText = score;
+
+        randomNumber = Math.floor(Math.random() * 10) + 1;
+    } else if (guess > randomNumber) {
+        document.getElementById("message").innerText = "📉 Too high!";
+    } else {
+        document.getElementById("message").innerText = "📈 Too low!";
+    }
+
+    document.getElementById("guessInput").value = "";
+
+    if (score >= 10) {
+        document.getElementById("message").innerText = "🏆 YOU WIN!";
+        gameOver = true;
+        document.getElementById("guessInput").disabled = true;
+    }
+}function shakeBox() {
+    let box = document.querySelector(".game-box");
+    box.classList.add("shake");
+shakeBox();
+    setTimeout(() => {
+        box.classList.remove("shake");
+    }, 300);
+}
+
+function restartGame() {
+    startGame(document.getElementById("guessInput").focus(););
+}
