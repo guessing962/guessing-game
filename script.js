@@ -53,3 +53,11 @@ shakeBox();
 function restartGame() {
     startGame();
 }
+let deferredPrompt;
+
+window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+
+    console.log("App can be installed");
+});
